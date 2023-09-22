@@ -1,0 +1,160 @@
+#!/bin/bash
+
+# sudo adduser $USER dialout
+
+############################################################
+# Default variables                                        #
+############################################################
+
+_Rojo="\e[31m"
+_Verde="\e[32m"
+_Amarillo="\e[33m"
+_Azul="\e[34m"
+_Magenta="\e[35m"
+_Cyan="\e[36m"
+_Reset="\e[0m"
+
+_OK="echo -e ${_Verde}[OK]${_Reset}"
+_FAIL="echo -e ${_Rojo}[FAIL]${_Reset}"
+
+_cmd=${1:-"none"}
+shift
+
+# $(id -u):$(id -g)
+_user="rerob"
+_filename="rerobapp"
+_tag="lasted"
+_containername="rerobapp_default"
+
+_verbose=0
+
+# SCRIPTPATH="$(dirname "$(readlink -f "$0")")"
+
+while [ $# -gt 0 ]; do
+   case "$1" in
+   cname=*)
+      _containername="${1#*=}"
+      ;;
+   name=*)
+      _filename="${1#*=}"
+      ;;
+   tag=*)
+      _tag="${1#*=}"
+      ;;
+   -n)
+      shift
+      _filename="$1"
+      ;;
+   user=*)
+      _user="${1#*=}"
+      ;;
+   -v)
+      _verbose=1
+      ;;
+   *)
+      echo "Argumento no reconocido: $1"
+      ;;
+   esac
+   shift
+done
+
+_USERPATH="$_filename/$_user"
+_LIBPATH="$_filename/$_user/lib"
+_SRCPATH="$_filename/$_user/src"
+_APPPATH="$_filename/$_user/app"
+_TESTPATH="$_filename/$_user/tests"
+_BUILDPATH="$_filename/$_user/tests"
+
+if [ $_verbose -eq 1 ]; then
+   echo "_cmd  = $_cmd"
+   echo "_user  = $_user"
+   echo "_filename  = $_filename"
+   echo "_tag  = $_tag"
+   echo "_containername = $_containername"
+fi
+
+if [ "${_cmd,,}" = "clear" ]; then
+   echo "Borrando imagen $_filename"
+   echo "$(docker container rm -f rerobapp_c)"
+
+   docker rmi -f $(docker images -aq)
+   docker rm -f $(docker container ls -aq)
+
+   exit
+fi
+
+if [ "${_cmd,,}" = "init" ]; then
+
+   echo "Construyendo la imagen del sistema"
+
+   docker rmi rerobapp:lasted
+
+   $(docker build -f "dockerfiles/$_filename.dockerfile" -t "$_filename:lasted" .)
+
+   if [ $? -eq 0 ]; then
+      ${_OK} "Docker init $_filename exitoso."
+   else
+      ${_FAIL} "Docker init $_filename fallido."
+   fi
+
+   exit
+fi
+
+if [ "${_cmd,,}" = "run" ]; then
+
+   echo "Iniciando imagen $_filename"
+
+   mkdir -p "$(pwd)/rerobapp/$_user"
+   chmod 777 "$(pwd)/rerobapp/$_user"
+
+   docker run -it --rm --user $(id -u):$(id -g) \
+      --env="DISPLAY" \
+      --env="QT_X11_NO_MITSHM=1" \
+      --env="TERM=xterm-256color" \
+      --network="host" \
+      --ipc="host" \
+      --privileged \
+      --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+      --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+      --volume="$(pwd)/rerobapp/$_user:/home/$_user:rw" \
+      --workdir="/home/$_user" \
+      --device=/dev/ttyACM0 \
+      --name $_containername $_filename:$_tag
+
+   # --name rerobapp_c\
+   # --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+   # --volume="/etc/passwd:/etc/passwd:ro" \
+   # --volume="/etc/shadow:/etc/shadow:ro" \
+   # --volume="/etc/group:/etc/group:ro" \
+   # --device=/dev/ttyUSB0
+
+   # docker cp /etc/passwd rerobapp_default:/etc/passwd
+   # docker cp /etc/group rerobapp_default:/etc/group
+   # sudo docker cp /etc/shadow rerobapp_default:/etc/shadow
+
+   exit
+fi
+
+
+
+if [ "${_cmd,,}" = "install" ]; then
+   echo "Start installing $_user"
+
+   mkdir -p "$_USERPATH"
+   chmod 777 "$_USERPATH"
+
+   mkdir -p "$_LIBPATH"
+   mkdir -p "$_SRCPATH"
+   mkdir -p "$_APPPATH"
+   mkdir -p "$_TESTPATH"
+
+   echo "" > $_USERPATH/.bashrc
+   echo -e "export _LIBPATH=$~/lib
+export _SRCPATH=~/src
+export _APPPATH=$~/app
+export _TESTPATH=$~/test" >>$_USERPATH/.bashrc
+
+   git clone https://github.com/ocornut/imgui.git "$_SRCPATH/imgui"
+
+   exit
+fi

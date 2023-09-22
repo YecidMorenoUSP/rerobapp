@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DOCKER_FOLDER=dockerfiles
+
+docker build -f $DOCKER_FOLDER/beaglebone_debian_11_7.dockerfile -t beaglebone2023:lasted .

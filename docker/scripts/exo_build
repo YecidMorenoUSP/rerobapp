@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo "******************************"
+echo $1
+echo "******************************"
+echo ""
+
+rm -r user
+
+mkdir -p $(pwd)/user
+mkdir -p $(pwd)/user/build
+mkdir -p $(pwd)/user/src
+
+cp -r /home/yecid/rerobapp/src/ user/
+
+
+docker run -it --rm\
+    --user $(id -u):$(id -g) \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --env="TERM=xterm-256color"\
+    --network="host" \
+    --ipc="host" \
+    --privileged \
+    --volume="/etc/group:/etc/group:ro" \
+    --volume="/etc/passwd:/etc/passwd:ro" \
+    --volume="/etc/shadow:/etc/shadow:ro" \
+    --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --volume="$(pwd)/user:/home/$USER:rw" \
+    --volume="$(pwd)/user/build:/home/$USER/build:rw" \
+    --name beaglebone_c\
+    --workdir="/home/$USER"\
+    beaglebone2023:lasted "./src/build.sh"
+
+# --volume="/home/yecid/rerobapp/src:/home/$USER/src:rw" \
+
+./user/src/send_to_beaglebone.sh
+
+read -p "Press enter to continue . . ."
