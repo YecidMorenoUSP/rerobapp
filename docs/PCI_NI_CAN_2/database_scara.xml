@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fx:FIBEX xmlns:fx="http://www.asam.net/xml/fbx" xmlns:can="http://www.asam.net/xml/fbx/can" xmlns:flexray="http://www.asam.net/xml/fbx/flexray" xmlns:ho="http://www.asam.net/xml" xmlns:ni="http://www.ni.com/xnet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.asam.net/xml/fbx/all http://www.asam.net/xml/fbx/2_0_1/xsd/fibex4multiplatform.xsd" VERSION="2.0.1">
+  <fx:PROJECT ID="NI-XNET">
+    <ho:SHORT-NAME>XNET1</ho:SHORT-NAME>
+  </fx:PROJECT>
+  <fx:ELEMENTS>
+    <fx:CLUSTERS>
+      <fx:CLUSTER ID="cluster1">
+        <ho:SHORT-NAME>NETCAN</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:SPEED>500000</fx:SPEED>
+        <fx:IS-HIGH-LOW-BIT-ORDER>true</fx:IS-HIGH-LOW-BIT-ORDER>
+        <fx:BIT-COUNTING-POLICY>SAWTOOTH</fx:BIT-COUNTING-POLICY>
+        <fx:PROTOCOL xsi:type="can:PROTOCOL-TYPE">CAN</fx:PROTOCOL>
+        <fx:CHANNEL-REFS>
+          <fx:CHANNEL-REF ID-REF="channel1"/>
+        </fx:CHANNEL-REFS>
+        <fx:MEDIUM>ELECTRICAL</fx:MEDIUM>
+      </fx:CLUSTER>
+    </fx:CLUSTERS>
+    <fx:CHANNELS>
+      <fx:CHANNEL ID="channel1">
+        <ho:SHORT-NAME>Channel1</ho:SHORT-NAME>
+        <fx:FRAME-TRIGGERINGS>
+          <fx:FRAME-TRIGGERING ID="trig1">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1537</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm1"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig2">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1542</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm2"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig3">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1543</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm3"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig4">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1409</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm4"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig5">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1544</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm5"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig6">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1545</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm6"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig7">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>514</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm7"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig8">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>515</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm8"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig9">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>516</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm9"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig10">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>517</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm10"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig11">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>518</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm11"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig12">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1414</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm12"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig13">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>519</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm13"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig14">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>520</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm14"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig15">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>521</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm15"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig16">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>0</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm16"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig17">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>386</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm17"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig18">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>387</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm18"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig19">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>388</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm19"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig20">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>389</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm20"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig21">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>390</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm21"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig22">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>391</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm22"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig23">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>587</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm23"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig24">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>392</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm24"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig25">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>393</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm25"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig26">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>513</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm26"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig27">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>385</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm27"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig28">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1410</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm28"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig29">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1411</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm29"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig30">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1412</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm30"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig31">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1413</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm31"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig32">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1416</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm32"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig33">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1417</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm33"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig34">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1538</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm34"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig35">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1539</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm35"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig36">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1540</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm36"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig37">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1541</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm37"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig38">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+              <fx:REQUEST-CONTROLLED-TIMING>
+                <fx:RESPONSE-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:RESPONSE-TIME-RANGE>
+              </fx:REQUEST-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>641</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm38"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig39">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.001S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>769</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm39"/>
+          </fx:FRAME-TRIGGERING>
+        </fx:FRAME-TRIGGERINGS>
+      </fx:CHANNEL>
+    </fx:CHANNELS>
+    <fx:FRAMES>
+      <fx:FRAME ID="frm1">
+        <ho:SHORT-NAME>SDO_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm2">
+        <ho:SHORT-NAME>SDO_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm3">
+        <ho:SHORT-NAME>SDO_TX_07</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm4">
+        <ho:SHORT-NAME>SDO_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm5">
+        <ho:SHORT-NAME>SDO_TX_08</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm6">
+        <ho:SHORT-NAME>SDO_TX_09</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm7">
+        <ho:SHORT-NAME>PDO01_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm8">
+        <ho:SHORT-NAME>PDO01_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm9">
+        <ho:SHORT-NAME>PDO01_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm10">
+        <ho:SHORT-NAME>PDO01_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm11">
+        <ho:SHORT-NAME>PDO01_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm12">
+        <ho:SHORT-NAME>SDO_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm13">
+        <ho:SHORT-NAME>PDO01_TX_07</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm14">
+        <ho:SHORT-NAME>PDO01_TX_08</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm15">
+        <ho:SHORT-NAME>PDO01_TX_09</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm16">
+        <ho:SHORT-NAME>NMT</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm17">
+        <ho:SHORT-NAME>PDO01_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm18">
+        <ho:SHORT-NAME>PDO01_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm19">
+        <ho:SHORT-NAME>PDO01_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm20">
+        <ho:SHORT-NAME>PDO01_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm21">
+        <ho:SHORT-NAME>PDO01_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm22">
+        <ho:SHORT-NAME>PDO01_RX_07</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm23">
+        <ho:SHORT-NAME>SDO_RX_07</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm24">
+        <ho:SHORT-NAME>PDO01_RX_08</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm25">
+        <ho:SHORT-NAME>PDO01_RX_09</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm26">
+        <ho:SHORT-NAME>PDO01_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm27">
+        <ho:SHORT-NAME>PDO01_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm28">
+        <ho:SHORT-NAME>SDO_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm29">
+        <ho:SHORT-NAME>SDO_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm30">
+        <ho:SHORT-NAME>SDO_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm31">
+        <ho:SHORT-NAME>SDO_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm32">
+        <ho:SHORT-NAME>SDO_RX_08</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm33">
+        <ho:SHORT-NAME>SDO_RX_09</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm34">
+        <ho:SHORT-NAME>SDO_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm35">
+        <ho:SHORT-NAME>SDO_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm36">
+        <ho:SHORT-NAME>SDO_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm37">
+        <ho:SHORT-NAME>SDO_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm38">
+        <ho:SHORT-NAME>PDO02_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+      <fx:FRAME ID="frm39">
+        <ho:SHORT-NAME>PDO02_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:FRAME-TYPE>APPLICATION</fx:FRAME-TYPE>
+      </fx:FRAME>
+    </fx:FRAMES>
+  </fx:ELEMENTS>
+  <fx:PROCESSING-INFORMATION xmlns="http://www.asam.net/xml">
+  </fx:PROCESSING-INFORMATION>
+</fx:FIBEX>

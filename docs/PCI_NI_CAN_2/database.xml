@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fx:FIBEX xmlns:fx="http://www.asam.net/xml/fbx" xmlns:can="http://www.asam.net/xml/fbx/can" xmlns:flexray="http://www.asam.net/xml/fbx/flexray" xmlns:lin="http://www.asam.net/xml/fbx/lin" xmlns:ho="http://www.asam.net/xml" xmlns:ni="http://www.ni.com/xnet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.asam.net/xml/fbx/all \FIBEX311schema\fibex4multiplatform.xsd" VERSION="3.1.1">
+  <fx:PROJECT ID="NI-XNET">
+    <ho:SHORT-NAME>XNET1</ho:SHORT-NAME>
+  </fx:PROJECT>
+  <fx:ELEMENTS>
+    <fx:CLUSTERS>
+      <fx:CLUSTER ID="cluster1">
+        <ho:SHORT-NAME>NETCAN</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:SPEED>500000</fx:SPEED>
+        <fx:IS-HIGH-LOW-BIT-ORDER>true</fx:IS-HIGH-LOW-BIT-ORDER>
+        <fx:BIT-COUNTING-POLICY>SAWTOOTH</fx:BIT-COUNTING-POLICY>
+        <fx:PROTOCOL xsi:type="can:PROTOCOL-TYPE">CAN</fx:PROTOCOL>
+        <fx:CHANNEL-REFS>
+          <fx:CHANNEL-REF ID-REF="channel1"/>
+        </fx:CHANNEL-REFS>
+        <fx:MEDIUM>ELECTRICAL</fx:MEDIUM>
+      </fx:CLUSTER>
+    </fx:CLUSTERS>
+    <fx:CHANNELS>
+      <fx:CHANNEL ID="channel1">
+        <ho:SHORT-NAME>Channel1</ho:SHORT-NAME>
+        <fx:PDU-TRIGGERINGS>
+          <fx:PDU-TRIGGERING ID="pdutrg1">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu45"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg2">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu14"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg3">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu20"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg4">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu12"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg5">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu39"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg6">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu9"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg7">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu10"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg8">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu11"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg9">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu15"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg10">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu16"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg11">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu17"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg12">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu40"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg13">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu18"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg14">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu21"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg15">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu22"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg16">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu1"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg17">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu23"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg18">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu24"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg19">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu26"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg20">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu27"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg21">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu28"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg22">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu29"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg23">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu41"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg24">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu30"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg25">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu32"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg26">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu33"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg27">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu34"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg28">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu3"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg29">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu35"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg30">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu36"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg31">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu4"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg32">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu5"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg33">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu6"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg34">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu42"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg35">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu8"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg36">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu2"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg37">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu51"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg38">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu43"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg39">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu46"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg40">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu47"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg41">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu48"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg42">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu49"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg43">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu7"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg44">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu13"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg45">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu19"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg46">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu25"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg47">
+            <fx:TIMINGS>
+              <fx:CYCLIC-TIMING>
+                <fx:REPEATING-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:REPEATING-TIME-RANGE>
+              </fx:CYCLIC-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu31"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg48">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu37"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg49">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu44"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg50">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0010000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu50"/>
+          </fx:PDU-TRIGGERING>
+          <fx:PDU-TRIGGERING ID="pdutrg51">
+            <fx:TIMINGS>
+              <fx:EVENT-CONTROLLED-TIMING>
+                <fx:DEBOUNCE-TIME-RANGE>
+                  <fx:VALUE>PT0.0050000000S</fx:VALUE>
+                </fx:DEBOUNCE-TIME-RANGE>
+              </fx:EVENT-CONTROLLED-TIMING>
+            </fx:TIMINGS>
+            <fx:PDU-REF ID-REF="pdu38"/>
+          </fx:PDU-TRIGGERING>
+        </fx:PDU-TRIGGERINGS>
+        <fx:FRAME-TRIGGERINGS>
+          <fx:FRAME-TRIGGERING ID="trig1">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1537</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm1"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig2">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>641</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm2"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig3">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>769</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm3"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig4">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>517</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm4"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig5">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1409</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm5"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig6">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>514</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm6"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig7">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>515</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm7"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig8">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>516</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm8"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig9">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>642</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm9"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig10">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>643</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm10"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig11">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>644</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm11"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig12">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1410</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm12"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig13">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>645</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm13"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig14">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>770</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm14"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig15">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>771</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm15"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig16">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>0</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm16"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig17">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>772</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm17"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig18">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>773</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm18"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig19">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>897</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm19"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig20">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>898</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm20"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig21">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>899</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm21"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig22">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>900</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm22"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig23">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1411</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm23"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig24">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>901</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm24"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig25">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1025</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm25"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig26">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1026</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm26"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig27">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1027</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm27"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig28">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>386</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm28"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig29">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1028</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm29"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig30">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1029</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm30"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig31">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>387</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm31"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig32">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>388</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm32"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig33">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>389</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm33"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig34">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1412</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm34"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig35">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>513</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm35"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig36">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>385</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm36"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig37">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>128</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm37"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig38">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1413</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm38"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig39">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1538</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm39"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig40">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1539</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm40"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig41">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1540</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm41"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig42">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1541</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm42"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig43">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>390</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm43"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig44">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>518</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm44"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig45">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>646</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm45"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig46">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>774</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm46"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig47">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>902</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm47"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig48">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1030</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm48"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig49">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1414</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm49"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig50">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>1542</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm50"/>
+          </fx:FRAME-TRIGGERING>
+          <fx:FRAME-TRIGGERING ID="trig51">
+            <fx:IDENTIFIER>
+              <fx:IDENTIFIER-VALUE>80</fx:IDENTIFIER-VALUE>
+            </fx:IDENTIFIER>
+            <fx:FRAME-REF ID-REF="frm51"/>
+          </fx:FRAME-TRIGGERING>
+        </fx:FRAME-TRIGGERINGS>
+      </fx:CHANNEL>
+    </fx:CHANNELS>
+    <fx:PDUS>
+      <fx:PDU ID="pdu1">
+        <ho:SHORT-NAME>NMT_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu2">
+        <ho:SHORT-NAME>PDO01_RX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu3">
+        <ho:SHORT-NAME>PDO01_RX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu4">
+        <ho:SHORT-NAME>PDO01_RX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu5">
+        <ho:SHORT-NAME>PDO01_RX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu6">
+        <ho:SHORT-NAME>PDO01_RX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu7">
+        <ho:SHORT-NAME>PDO01_RX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu8">
+        <ho:SHORT-NAME>PDO01_TX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu9">
+        <ho:SHORT-NAME>PDO01_TX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu10">
+        <ho:SHORT-NAME>PDO01_TX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu11">
+        <ho:SHORT-NAME>PDO01_TX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu12">
+        <ho:SHORT-NAME>PDO01_TX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu13">
+        <ho:SHORT-NAME>PDO01_TX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu14">
+        <ho:SHORT-NAME>PDO02_RX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu15">
+        <ho:SHORT-NAME>PDO02_RX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu16">
+        <ho:SHORT-NAME>PDO02_RX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu17">
+        <ho:SHORT-NAME>PDO02_RX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu18">
+        <ho:SHORT-NAME>PDO02_RX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu19">
+        <ho:SHORT-NAME>PDO02_RX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu20">
+        <ho:SHORT-NAME>PDO02_TX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu21">
+        <ho:SHORT-NAME>PDO02_TX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu22">
+        <ho:SHORT-NAME>PDO02_TX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu23">
+        <ho:SHORT-NAME>PDO02_TX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu24">
+        <ho:SHORT-NAME>PDO02_TX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu25">
+        <ho:SHORT-NAME>PDO02_TX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu26">
+        <ho:SHORT-NAME>PDO03_RX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu27">
+        <ho:SHORT-NAME>PDO03_RX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu28">
+        <ho:SHORT-NAME>PDO03_RX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu29">
+        <ho:SHORT-NAME>PDO03_RX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu30">
+        <ho:SHORT-NAME>PDO03_RX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu31">
+        <ho:SHORT-NAME>PDO03_RX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu32">
+        <ho:SHORT-NAME>PDO03_TX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu33">
+        <ho:SHORT-NAME>PDO03_TX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu34">
+        <ho:SHORT-NAME>PDO03_TX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu35">
+        <ho:SHORT-NAME>PDO03_TX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu36">
+        <ho:SHORT-NAME>PDO03_TX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu37">
+        <ho:SHORT-NAME>PDO03_TX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu38">
+        <ho:SHORT-NAME>PREOP_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu39">
+        <ho:SHORT-NAME>SDO_RX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu40">
+        <ho:SHORT-NAME>SDO_RX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu41">
+        <ho:SHORT-NAME>SDO_RX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu42">
+        <ho:SHORT-NAME>SDO_RX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu43">
+        <ho:SHORT-NAME>SDO_RX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu44">
+        <ho:SHORT-NAME>SDO_RX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu45">
+        <ho:SHORT-NAME>SDO_TX_01_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu46">
+        <ho:SHORT-NAME>SDO_TX_02_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu47">
+        <ho:SHORT-NAME>SDO_TX_03_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu48">
+        <ho:SHORT-NAME>SDO_TX_04_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu49">
+        <ho:SHORT-NAME>SDO_TX_05_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu50">
+        <ho:SHORT-NAME>SDO_TX_06_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+      <fx:PDU ID="pdu51">
+        <ho:SHORT-NAME>SYNC_pdu</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-TYPE>APPLICATION</fx:PDU-TYPE>
+      </fx:PDU>
+    </fx:PDUS>
+    <fx:FRAMES>
+      <fx:FRAME ID="frm1">
+        <ho:SHORT-NAME>SDO_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst1">
+            <fx:PDU-REF ID-REF="pdu45"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm2">
+        <ho:SHORT-NAME>PDO02_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst2">
+            <fx:PDU-REF ID-REF="pdu14"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm3">
+        <ho:SHORT-NAME>PDO02_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst3">
+            <fx:PDU-REF ID-REF="pdu20"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm4">
+        <ho:SHORT-NAME>PDO01_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst4">
+            <fx:PDU-REF ID-REF="pdu12"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm5">
+        <ho:SHORT-NAME>SDO_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst5">
+            <fx:PDU-REF ID-REF="pdu39"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm6">
+        <ho:SHORT-NAME>PDO01_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst6">
+            <fx:PDU-REF ID-REF="pdu9"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm7">
+        <ho:SHORT-NAME>PDO01_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst7">
+            <fx:PDU-REF ID-REF="pdu10"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm8">
+        <ho:SHORT-NAME>PDO01_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst8">
+            <fx:PDU-REF ID-REF="pdu11"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm9">
+        <ho:SHORT-NAME>PDO02_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst9">
+            <fx:PDU-REF ID-REF="pdu15"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm10">
+        <ho:SHORT-NAME>PDO02_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst10">
+            <fx:PDU-REF ID-REF="pdu16"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm11">
+        <ho:SHORT-NAME>PDO02_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst11">
+            <fx:PDU-REF ID-REF="pdu17"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm12">
+        <ho:SHORT-NAME>SDO_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst12">
+            <fx:PDU-REF ID-REF="pdu40"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm13">
+        <ho:SHORT-NAME>PDO02_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst13">
+            <fx:PDU-REF ID-REF="pdu18"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm14">
+        <ho:SHORT-NAME>PDO02_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst14">
+            <fx:PDU-REF ID-REF="pdu21"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm15">
+        <ho:SHORT-NAME>PDO02_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst15">
+            <fx:PDU-REF ID-REF="pdu22"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm16">
+        <ho:SHORT-NAME>NMT</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst16">
+            <fx:PDU-REF ID-REF="pdu1"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm17">
+        <ho:SHORT-NAME>PDO02_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst17">
+            <fx:PDU-REF ID-REF="pdu23"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm18">
+        <ho:SHORT-NAME>PDO02_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst18">
+            <fx:PDU-REF ID-REF="pdu24"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm19">
+        <ho:SHORT-NAME>PDO03_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst19">
+            <fx:PDU-REF ID-REF="pdu26"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm20">
+        <ho:SHORT-NAME>PDO03_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst20">
+            <fx:PDU-REF ID-REF="pdu27"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm21">
+        <ho:SHORT-NAME>PDO03_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst21">
+            <fx:PDU-REF ID-REF="pdu28"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm22">
+        <ho:SHORT-NAME>PDO03_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst22">
+            <fx:PDU-REF ID-REF="pdu29"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm23">
+        <ho:SHORT-NAME>SDO_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst23">
+            <fx:PDU-REF ID-REF="pdu41"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm24">
+        <ho:SHORT-NAME>PDO03_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst24">
+            <fx:PDU-REF ID-REF="pdu30"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm25">
+        <ho:SHORT-NAME>PDO03_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst25">
+            <fx:PDU-REF ID-REF="pdu32"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm26">
+        <ho:SHORT-NAME>PDO03_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst26">
+            <fx:PDU-REF ID-REF="pdu33"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm27">
+        <ho:SHORT-NAME>PDO03_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst27">
+            <fx:PDU-REF ID-REF="pdu34"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm28">
+        <ho:SHORT-NAME>PDO01_RX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst28">
+            <fx:PDU-REF ID-REF="pdu3"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm29">
+        <ho:SHORT-NAME>PDO03_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst29">
+            <fx:PDU-REF ID-REF="pdu35"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm30">
+        <ho:SHORT-NAME>PDO03_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst30">
+            <fx:PDU-REF ID-REF="pdu36"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm31">
+        <ho:SHORT-NAME>PDO01_RX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst31">
+            <fx:PDU-REF ID-REF="pdu4"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm32">
+        <ho:SHORT-NAME>PDO01_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst32">
+            <fx:PDU-REF ID-REF="pdu5"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm33">
+        <ho:SHORT-NAME>PDO01_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst33">
+            <fx:PDU-REF ID-REF="pdu6"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm34">
+        <ho:SHORT-NAME>SDO_RX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst34">
+            <fx:PDU-REF ID-REF="pdu42"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm35">
+        <ho:SHORT-NAME>PDO01_TX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst35">
+            <fx:PDU-REF ID-REF="pdu8"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm36">
+        <ho:SHORT-NAME>PDO01_RX_01</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst36">
+            <fx:PDU-REF ID-REF="pdu2"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm37">
+        <ho:SHORT-NAME>SYNC</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst37">
+            <fx:PDU-REF ID-REF="pdu51"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm38">
+        <ho:SHORT-NAME>SDO_RX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst38">
+            <fx:PDU-REF ID-REF="pdu43"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm39">
+        <ho:SHORT-NAME>SDO_TX_02</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst39">
+            <fx:PDU-REF ID-REF="pdu46"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm40">
+        <ho:SHORT-NAME>SDO_TX_03</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst40">
+            <fx:PDU-REF ID-REF="pdu47"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm41">
+        <ho:SHORT-NAME>SDO_TX_04</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst41">
+            <fx:PDU-REF ID-REF="pdu48"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm42">
+        <ho:SHORT-NAME>SDO_TX_05</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst42">
+            <fx:PDU-REF ID-REF="pdu49"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm43">
+        <ho:SHORT-NAME>PDO01_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst43">
+            <fx:PDU-REF ID-REF="pdu7"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm44">
+        <ho:SHORT-NAME>PDO01_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst44">
+            <fx:PDU-REF ID-REF="pdu13"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm45">
+        <ho:SHORT-NAME>PDO02_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst45">
+            <fx:PDU-REF ID-REF="pdu19"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm46">
+        <ho:SHORT-NAME>PDO02_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst46">
+            <fx:PDU-REF ID-REF="pdu25"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm47">
+        <ho:SHORT-NAME>PDO03_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst47">
+            <fx:PDU-REF ID-REF="pdu31"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm48">
+        <ho:SHORT-NAME>PDO03_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst48">
+            <fx:PDU-REF ID-REF="pdu37"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm49">
+        <ho:SHORT-NAME>SDO_RX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst49">
+            <fx:PDU-REF ID-REF="pdu44"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm50">
+        <ho:SHORT-NAME>SDO_TX_06</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst50">
+            <fx:PDU-REF ID-REF="pdu50"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+      <fx:FRAME ID="frm51">
+        <ho:SHORT-NAME>PREOP</ho:SHORT-NAME>
+        <ho:DESC></ho:DESC>
+        <fx:BYTE-LENGTH>8</fx:BYTE-LENGTH>
+        <fx:PDU-INSTANCES>
+          <fx:PDU-INSTANCE ID="pduinst51">
+            <fx:PDU-REF ID-REF="pdu38"/>
+            <fx:BIT-POSITION>0</fx:BIT-POSITION>
+            <fx:IS-HIGH-LOW-BYTE-ORDER>false</fx:IS-HIGH-LOW-BYTE-ORDER>
+          </fx:PDU-INSTANCE>
+        </fx:PDU-INSTANCES>
+      </fx:FRAME>
+    </fx:FRAMES>
+  </fx:ELEMENTS>
+  <fx:PROCESSING-INFORMATION xmlns="http://www.asam.net/xml">
+  </fx:PROCESSING-INFORMATION>
+</fx:FIBEX>
