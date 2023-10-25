@@ -32,6 +32,8 @@ void timer_isr(int sig, siginfo_t *p, void *p2)
     TIME::control++;
     spinlock_Control.Unlock();
     spinlock_Sync.Unlock();
+    
+    // PRINT_LOG(2, PRINT_MAGENTA "Timer" PRINT_RESET);
 }
 
 int createTimer(long tv_nsec)
@@ -113,6 +115,9 @@ void closeCallBack()
 void my_handler(int s)
 {
     closeCallBack();
+
+    can.printDic();
+
     PRINT_LOG(1, PRINT_GREEN "Ctrl+C Captured" PRINT_RESET "  %.4fseconds", STATUS::TIME::seconds);
     exit(1);
 }
@@ -137,6 +142,9 @@ public:
     vector<float> knee_pos_out;
     vector<float> knee_vel_in;
     vector<float> knee_vel_out;
+    vector<float> knee_tau_d;
+    vector<float> knee_tau_l;
+    vector<float> knee_vel_d;
 
     File_threadControl()
     {
@@ -150,15 +158,18 @@ public:
         knee_pos_out.reserve(_size);
         knee_vel_in.reserve(_size);
         knee_vel_out.reserve(_size);
+        knee_vel_d.reserve(_size);
+        knee_tau_d.reserve(_size);
+        knee_tau_l.reserve(_size);
     }
 
     void saveHeader(FILE *file)
     {
-        fprintf(file, "time\tknee_pos_in\tknee_pos_out\tknee_vel_in\tknee_vel_out\n");
+        fprintf(file, "time\tknee_pos_in\tknee_pos_out\tknee_vel_in\tknee_vel_out\tknee_vel_d\tknee_tau_d\tknee_tau_l\n");
     }
 
     void saveLine(FILE *file, long idx)
     {
-        fprintf(file, "%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", time[idx], knee_pos_in[idx], knee_pos_out[idx], knee_vel_in[idx], knee_vel_out[idx]);
+        fprintf(file, "%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", time[idx], knee_pos_in[idx], knee_pos_out[idx], knee_vel_in[idx], knee_vel_out[idx], knee_vel_d[idx],knee_tau_d[idx],knee_tau_l[idx]);
     }
 };

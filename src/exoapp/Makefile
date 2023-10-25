@@ -2,7 +2,7 @@
 CXX := arm-linux-gnueabihf-g++
 CXXFLAGS :=   -O3  -lpthread -lrt
 DBGFLAGS := -g 
-CCOBJFLAGS := $(CXXFLAGS) -I../libs_rerob/canlib  -I../libs_rerob/utilslib -c  -lrt 
+CCOBJFLAGS := $(CXXFLAGS) -I../libs_rerob/canlib  -I../libs_rerob/utilslib -I../../libs/ -I/usr/include/eigen3/ -c  -lrt  
 
 # path macros
 BIN_PATH := ~/build

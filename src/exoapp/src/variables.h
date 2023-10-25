@@ -12,14 +12,18 @@ namespace EXO
     {
         namespace Knee
         {
-            EposNode Motor(4, can);
-            EposNode Encoder(3, can);
+            EposNode Motor(1, can);
+            EposNode Encoder(2, can);
         };
     };
 
     namespace L
     {
-
+        namespace Knee
+        {
+            EposNode Motor(3, can);
+            EposNode Encoder(4, can);
+        };
     };
 }
 
@@ -45,7 +49,7 @@ namespace CONFIG
         durationTest = __duration;
     }
 
-    void setFrequencySample(long __ts_us = 1000L)
+    void setTimeSample_us(long __ts_us = 1000L)
     {
         ts_us = __ts_us;
         ts_ns = ts_us * 1000L;
