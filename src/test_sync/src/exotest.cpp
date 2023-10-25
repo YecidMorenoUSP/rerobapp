@@ -28,8 +28,8 @@ condition_variable timer0;
 condition_variable timerCan;
 atomic<bool> END(false);
 
-CanNetwork can(r "can0");
-EposNode node4(4, can);
+CanNetwork can((char*) "can0");
+EposNode node4(3, can);
 EposNetwork net(can);
 
 long time_k = 0;

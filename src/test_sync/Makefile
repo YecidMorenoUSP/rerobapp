@@ -2,7 +2,7 @@
 CXX := arm-linux-gnueabihf-g++
 CXXFLAGS := -pthread  -O3
 DBGFLAGS := -g
-CCOBJFLAGS := $(CXXFLAGS)  -c -I../libs_rerob/canlib 
+CCOBJFLAGS := $(CXXFLAGS)  -c -I../libs_rerob/canlib  -I/usr/include/eigen3/
 
 # path macros
 BIN_PATH := ~/build
@@ -12,7 +12,7 @@ DBG_PATH := debug
 RES_PATH := res
 
 # compile macros
-TARGET_NAME := rerobapp
+TARGET_NAME := test_sync
 ifeq ($(OS),Windows_NT)
 	TARGET_NAME := $(addsuffix .exe,$(TARGET_NAME))
 endif

@@ -1,6 +1,13 @@
+# ------------------
+sudo apt update -y
+sudo apt install libeigen3-dev
+# ------------------
+
 # RerobAPP
 The goal of this project is to create a real-time framework for microprocessors, facilitating its implementation in research environments and enabling interaction with multiple devices. This comprehensive framework features real-time capabilities, multiple devices interaction, real-time system visualization, data storage, error handling, offline data visualization, and remote administration, making it a tool for various applications.
 
+- [------------------](#------------------)
+- [------------------](#-------------------1)
 - [RerobAPP](#rerobapp)
     - [Remote monitoring server](#remote-monitoring-server)
     - [Real-time visualization (Matlab)](#real-time-visualization-matlab)

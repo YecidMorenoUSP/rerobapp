@@ -29,6 +29,7 @@ docker run -it --rm --user $(id -u):$(id -g) \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --volume="$USER_DOCKER_PATH:/home/$USER:rw" \
     --volume="$BUILD_DOCKER_PATH:/home/$USER/build:rw" \
+    --volume="$REROBAPP_PATH/libs:/home/$USER/libs:rw" \
     --name beaglebone_c --workdir="/home/$USER" \
     beaglebone2023:lasted "./src/task.sh"
 

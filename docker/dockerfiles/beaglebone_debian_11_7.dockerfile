@@ -19,6 +19,9 @@ RUN apt-get install -y \
 RUN apt-get install -y \
 	linux-image-5.10.0-25-rt-amd64
 
+RUN apt-get install -y \
+	libeigen3-dev
+
 RUN echo 'root ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo 'yecid ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
