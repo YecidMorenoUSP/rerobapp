@@ -2,9 +2,9 @@
 CXX := arm-linux-gnueabihf-g++
 CXXFLAGS :=  -pthread  -O3
 DBGFLAGS := -g
-CCOBJFLAGS := $(CXXFLAGS) -c  
+CCOBJFLAGS := $(CXXFLAGS) -c   -I/usr/include/eigen3/
 
-# path macros
+# path macrosEigen
 BIN_PATH := ~/build/libs
 OBJ_PATH := obj
 SRC_PATH := .

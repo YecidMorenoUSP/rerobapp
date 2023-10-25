@@ -54,6 +54,8 @@ public:
 
     void setNode(int id, EposNode &node);
 
+    void setNode(EposNode &node);
+
     EposNode *getNode(int id)
     {
         return _node[id];

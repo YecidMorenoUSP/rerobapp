@@ -7,7 +7,7 @@
 #include <time.h>
 #include <thread>
 
-#define r (char *)
+// #define __r (char *)
 typedef struct can_frame can_frame_s;
 
 // #define can_tic_toc usleep(400);

@@ -1,4 +1,7 @@
 #pragma once
+
+#include <Eigen/Dense>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +14,11 @@ class EposNode
 {
 private:
     int8_t _id;
+
+
+    
+
+
     int32_t _controlWord;
 
     bool asyncCan = true;
@@ -31,6 +39,8 @@ private:
     PDO_TX_2_type * PDO_TX_2_data;
     PDO_RX_2_type * PDO_RX_2_data;
 
+    
+
     void _init(int8_t id)
     {
         _id = id;
@@ -50,12 +60,18 @@ private:
 
 public:
     
+    double encoder_Q = 1020.0;
     int32_t position;
     int16_t A1,A2;
 
     EposNode(){};
     EposNode(int id, CanNetwork &can);
     ~EposNode();
+
+    int8_t get_id()
+    {
+        return this->_id;
+    }
 
     void setVelocityMode(){
         PDO_RX_2_data->controlWord = 0;
@@ -93,12 +109,16 @@ public:
         _can->getDicKey(_PDO_TX_2.can_id,_PDO_TX_2);        
     }
 
-    int32_t getPosition(){
+    double getPosition(){
+        return PDO_TX_1_data->position*2.0*EIGEN_PI/encoder_Q;
+    }
+
+    int32_t getPositionRAW(){
         return PDO_TX_1_data->position;
     }
 
     int16_t getVelocity(){
-        return PDO_TX_2_data->velocity;
+        return PDO_TX_2_data->velocity;//*2.0*EIGEN_PI/encoder_Q
     }
 
     void faultReset(bool async = false)
