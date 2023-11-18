@@ -1,6 +1,9 @@
 # ------------------
 sudo apt update -y
 sudo apt install libeigen3-dev
+sudo apt-get install minicom
+sudo apt-get install tio
+
 # ------------------
 
 # RerobAPP
