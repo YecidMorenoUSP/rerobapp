@@ -102,6 +102,7 @@ public:
 
     void startMotors(){
         faultReset();
+        can_tic_toc_l;
     }
 
     void readPDO_TX_all(){

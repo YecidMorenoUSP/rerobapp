@@ -4,7 +4,6 @@ source "$HOME/.config/rerobapp/start.conf"
 
 SRC_PATH="."
 
-# SSH_USER="debian@192.168.6.2"
 SSH_USER="$EXOTAO_USER_SSH"
 
 rm -r "$SRC_DOCKER_PATH"

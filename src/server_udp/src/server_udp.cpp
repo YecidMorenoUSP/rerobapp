@@ -33,7 +33,9 @@ int main()
 
     void *shm_ptr = shm_create(SHM_VARS_STREAM_KEY, SHM_VARS_STREAM_SIZE);
     shm_struct_vars_stream *var_stream = (shm_struct_vars_stream *)shm_ptr;
-    
+
+    void *shm_ptr_in = shm_create(SHM_VARS_IN_KEY, SHM_VARS_IN_SIZE);
+    shm_struct_vars_in *var_in = (shm_struct_vars_in *)shm_ptr_in;
 
     PRINT_LOG(5, PRINT_GREEN "REROBAPP SERVER UDP" PRINT_RESET);
 
@@ -72,12 +74,13 @@ int main()
     fcntl(sockfd, F_SETFL, O_NONBLOCK);
     int nsz, idx_client;
 
-    
     time_t tNclient = time(NULL);
     auto t0_test = high_resolution_clock::now();
 
     int nClientDisp = -1;
     bool nClientFound = false;
+
+    float aux_f[10];
 
     bool printRec = false;
     while (1)
@@ -136,6 +139,23 @@ int main()
                     printRec = false;
                 }
             }
+            else if (strncmp("pos_d:", buffer, 6) == 0)
+            {
+                if (sscanf(buffer, "pos_d:%f\n", &aux_f[0]) >= 0)
+                {
+                    var_in->pos_d = aux_f[0];
+                    printRec = false;
+                }
+            }
+            else if (strncmp("KV:", buffer, 3) == 0)
+            {
+                if (sscanf(buffer, "KV:%f\n", &aux_f[0]) >= 0)
+                {
+                    PRINT_LOG(4, PRINT_YELLOW "KV: %f", aux_f[0]);
+                    var_in->KV = aux_f[0];
+                    printRec = false;
+                }
+            }
             else
             {
                 printRec = true;
@@ -144,7 +164,7 @@ int main()
             if (printRec)
             {
                 buffer[nsz] = '\0';
-                PRINT_LOG(5, "<< %d:%s", nsz, buffer);
+                PRINT_LOG(5, PRINT_BLUE "%d:%s", nsz, buffer);
             }
         }
 
@@ -178,7 +198,6 @@ int main()
         {
             t0_send = high_resolution_clock::now();
 
-            
             // var_stream->t_s = duration_cast<milliseconds>(high_resolution_clock::now() - t0_test).count()/1000.0f;
             // var_stream->exo_hip_rigth_pos_in = sin(2*M_PI*1*var_stream->t_s);
 

@@ -1,8 +1,9 @@
 # tool macros
+
 CXX := arm-linux-gnueabihf-g++
-CXXFLAGS :=   -O3  -lpthread -lrt
+CXXFLAGS := -O3  -lpthread -lrt
 DBGFLAGS := -g 
-CCOBJFLAGS := $(CXXFLAGS) -I../libs_rerob -I../libs_rerob/canlib  -I../libs_rerob/utilslib -I../../libs/ -I/usr/include/eigen3/ -c  -lrt  
+CCOBJFLAGS := $(CXXFLAGS) -c -I../libs_rerob -I../libs_rerob/utilslib -lrt 
 
 # path macros
 BIN_PATH := ~/build
@@ -34,21 +35,12 @@ CLEAN_LIST := $(TARGET) \
 # default rule
 default: makedir all
 
-run :
-	@echo $(SRC)
-	@echo $(OBJ)
-	./bin/main
-
-send-beaglebone :
-	./send_to_beaglebone.sh
-
 # non-phony targets
 $(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(CXXFLAGS) libs/canlib.so
-	$(CXX) -o $@.static $(OBJ) $(BIN_PATH)/libs/canlib.a $(CXXFLAGS)
+	$(CXX) $(OBJ) -o $@ $(CXXFLAGS) 
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*
-	$(CXX) $(CCOBJFLAGS) -o $@ $<
+	$(CXX) $(CCOBJFLAGS)  -o $@ $<
 
 $(DBG_PATH)/%.o: $(SRC_PATH)/%.c*
 	$(CXX) $(CCOBJFLAGS) $(DBGFLAGS) -o $@ $<

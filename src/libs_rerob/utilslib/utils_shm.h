@@ -64,6 +64,18 @@ typedef struct
 }shm_struct_vars_stream;
 
 
+#define SHM_VARS_IN_KEY 0x1011
+#define SHM_VARS_IN_SIZE 1024
+typedef struct
+{
+    uint16_t key = SHM_VARS_IN_KEY;
+    uint16_t statusWord;
+
+    float t_s;
+    float KV;
+    float pos_d;
+
+}shm_struct_vars_in;
 
 void* shm_create(key_t key, size_t size){
     int shmid = shmget(key, size, 0666 | IPC_CREAT);

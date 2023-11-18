@@ -15,6 +15,10 @@ namespace EXO
             EposNode Motor(1, can);
             EposNode Encoder(2, can);
         };
+        namespace Hip
+        {
+            EposNode Motor(5, can);
+        };
     };
 
     namespace L
@@ -24,8 +28,20 @@ namespace EXO
             EposNode Motor(3, can);
             EposNode Encoder(4, can);
         };
+        namespace Hip
+        {
+            EposNode Motor(6, can);
+        };
     };
 }
+
+namespace VARS_EXO{
+    ActuatorVARS KR;
+    ActuatorVARS KL;
+    ActuatorVARS HL;
+    ActuatorVARS HR;
+    shm_struct_vars_in * UDP_IN;
+};
 
 // #define _count_k 1
 // #define _ts_s 0.001
@@ -81,4 +97,4 @@ timer_t timerId;
 SpinLock spinlock_Control;
 SpinLock spinlock_Sync;
 
-pthread_t threadSync, threadControl;
+pthread_t threadSync, threadControl, threadSerial;

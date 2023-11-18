@@ -110,6 +110,13 @@ void closeCallBack()
             PRINT_LOG(5, PRINT_RED "[FAIL]" PRINT_RESET "Wait for: void *threadControl %d", res);
         }
     }
+    if (res = pthread_join(threadSerial, nullptr) != 0)
+    {
+        if (!(res == EPERM || res == 0))
+        {
+            PRINT_LOG(5, PRINT_RED "[FAIL]" PRINT_RESET "Wait for: void *threadSerial %d", res);
+        }
+    }
 }
 
 void my_handler(int s)
@@ -138,13 +145,13 @@ class File_threadControl : public RerobAppDataLog
 
 public:
     vector<float> time;
-    vector<float> knee_pos_in;
-    vector<float> knee_pos_out;
-    vector<float> knee_vel_in;
-    vector<float> knee_vel_out;
-    vector<float> knee_tau_d;
-    vector<float> knee_tau_l;
-    vector<float> knee_vel_d;
+    vector<float> pos_in;
+    vector<float> pos_out;
+    vector<float> vel_in;
+    vector<float> vel_out;
+    vector<float> tau_d;
+    vector<float> tau_l;
+    vector<float> vel_d;
 
     File_threadControl()
     {
@@ -154,22 +161,22 @@ public:
     {
         _size = size + 100;
         time.reserve(_size);
-        knee_pos_in.reserve(_size);
-        knee_pos_out.reserve(_size);
-        knee_vel_in.reserve(_size);
-        knee_vel_out.reserve(_size);
-        knee_vel_d.reserve(_size);
-        knee_tau_d.reserve(_size);
-        knee_tau_l.reserve(_size);
+        pos_in.reserve(_size);
+        pos_out.reserve(_size);
+        vel_in.reserve(_size);
+        vel_out.reserve(_size);
+        vel_d.reserve(_size);
+        tau_d.reserve(_size);
+        tau_l.reserve(_size);
     }
 
     void saveHeader(FILE *file)
     {
-        fprintf(file, "time\tknee_pos_in\tknee_pos_out\tknee_vel_in\tknee_vel_out\tknee_vel_d\tknee_tau_d\tknee_tau_l\n");
+        fprintf(file, "time\tpos_in\tpos_out\tvel_in\tvel_out\tvel_d\ttau_d\ttau_l\n");
     }
 
     void saveLine(FILE *file, long idx)
     {
-        fprintf(file, "%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", time[idx], knee_pos_in[idx], knee_pos_out[idx], knee_vel_in[idx], knee_vel_out[idx], knee_vel_d[idx],knee_tau_d[idx],knee_tau_l[idx]);
+        fprintf(file, "%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", time[idx], pos_in[idx], pos_out[idx], vel_in[idx], vel_out[idx], vel_d[idx],tau_d[idx],tau_l[idx]);
     }
 };
