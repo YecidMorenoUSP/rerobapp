@@ -1,9 +1,9 @@
 clc
 clearvars
-
-!scp -r debian@192.168.0.232:/home/debian/out .
+system("source ~/.config/rerobapp/start.conf ; scp -r $EXOTAO_USER_SSH:/home/debian/out .");
+% !scp -r debian@192.168.0.232:/home/debian/out .
 %%
-f = "out/file_Knee_L.dat";
+f = "out/file_Hip_R.dat";
 
 d = importdata(f,'\t');
 
@@ -20,35 +20,34 @@ for idx = 1:numel(d.colheaders)
 end
 
 t = data.time;
-tau_cal = (data.knee_pos_in/150 - data.knee_pos_out)*104;
+tau_cal = (data.pos_in/150 - data.pos_out)*104;
 
 figure(200), clf
 
 subplot(321)
 hold on
-plot(t,data.knee_pos_in)
-plot(t,data.knee_pos_out*150)
+plot(t,data.pos_in)
 ylabel("position [u]")
 
 subplot(322)
-plot(t,data.knee_pos_out)
+plot(t,data.pos_out)
 ylabel("position [u]")
 
 subplot(323)
 hold on
-plot(t,data.knee_vel_d)
-plot(t,data.knee_vel_in)
+plot(t,data.vel_d)
+plot(t,data.vel_in)
 legend("omega_d","omega")
 ylabel("velocity [u/s]")
 
 subplot(324)
-plot(t,data.knee_vel_out)
+plot(t,data.vel_out)
 ylabel("velocity [u/s]")
 
 subplot(325)
 hold on
-plot(t,data.knee_tau_d)
-plot(t,data.knee_tau_l)
+plot(t,data.tau_d)
+plot(t,data.tau_l)
 legend("tau_d","tau")
 ylabel("tau [u/s]")
 

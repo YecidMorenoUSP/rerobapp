@@ -4,6 +4,7 @@ clc
 clearvars
 close all
 
+
 makeUI()
 
 if ~isempty(timerfindall)
@@ -93,7 +94,10 @@ function onData(~,~)
         updateLine(UI.r_k_omega_in,VARS_STREAM.t_s,VARS_STREAM.exo_knee_rigth_vel_in);
         updateLine(UI.r_k_omega_out,VARS_STREAM.t_s,VARS_STREAM.exo_knee_rigth_vel_out);
         
+        updateLine(UI.lines.exo_hip_rigth_pos_out,VARS_STREAM.t_s,VARS_STREAM.exo_hip_rigth_pos_out);
        
+
+
      end   
 
 end
@@ -122,7 +126,7 @@ function makeUI
     fig.Position(3:4) = [800 500];
     fig.CloseRequestFcn = @onClose;
     clf
-
+    
     annotation("textbox","Position",[0,.9,1,.1], ...
         "BackgroundColor","w",'String',"ReRobAPP [ExoTAO]", ...
         "HorizontalAlignment","center","VerticalAlignment","middle", ...
@@ -136,7 +140,7 @@ function makeUI
     UI.axpos = axes(Position=[.45,.5,.5,.3]);
     set(UI.axpos,'nextplot','add','xminorgrid','on','yminorgrid','on', ...
         "Title",text(0,0,"Position"))
-    legend
+    legend off
     UI.axvel = axes(Position=[.45,.1,.5,.3]);
     set(UI.axvel,'nextplot','add','xminorgrid','on','yminorgrid','on', ...
         "Title",text(0,0,"Velocity"))
@@ -148,6 +152,21 @@ function makeUI
     UI.r_k_omega_in = plot(nan,nan,"Parent",UI.axvel,'DisplayName',"\omega_k^r");
     UI.r_k_omega_out = plot(nan,nan,"Parent",UI.axvel,'DisplayName',"\omega_k^r");
     
+
+     
+    vars_read = fieldnames(shm_vars_stream_cast(zeros(1,10000)));
+    assignin("base","vars_read",vars_read);
+    for idx = 2:numel(vars_read)
+        
+        
+        if contains(vars_read{2},"pos") == 1
+            curAx = 'UI.axpos';
+        else
+            curAx = 'UI.axvel';
+        end
+
+        eval(sprintf("UI.lines.('%s') = plot(nan,nan,'Parent',%s,'DisplayName','%s');",vars_read{idx},curAx,vars_read{idx}));
+    end
 
     assignin("base","fig",fig)       
 end
