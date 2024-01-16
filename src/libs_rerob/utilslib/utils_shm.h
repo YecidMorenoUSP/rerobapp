@@ -74,6 +74,10 @@ typedef struct
     float t_s;
     float KV;
     float pos_d;
+    float HR_pos_d;
+    float HL_pos_d;
+    float KR_pos_d;
+    float KL_pos_d;
 
 }shm_struct_vars_in;
 

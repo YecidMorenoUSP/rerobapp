@@ -87,7 +87,7 @@ int main()
     {
 
         fflush(stdout);
-
+        memset(buffer,'\0',1024);
         if ((nsz = recvfrom(sockfd, buffer, 1024, 0, (struct sockaddr *)&si_other, &addr_size)) >= 0)
         {
             printRec = false;
@@ -141,9 +141,17 @@ int main()
             }
             else if (strncmp("pos_d:", buffer, 6) == 0)
             {
-                if (sscanf(buffer, "pos_d:%f\n", &aux_f[0]) >= 0)
+                if (sscanf(buffer+7, "%f %f %f %f", &aux_f[0],&aux_f[1],&aux_f[2],&aux_f[3]) >= 0)
                 {
-                    var_in->pos_d = aux_f[0];
+                    var_in->pos_d = 0;
+                    var_in->HR_pos_d = aux_f[0];
+                    var_in->HL_pos_d = aux_f[1];
+                    var_in->KR_pos_d = aux_f[2];
+                    var_in->KL_pos_d = aux_f[3];
+                    
+                    // PRINT_LOG(5, PRINT_BLUE "%d:%s", nsz, buffer+7);
+                    // PRINT_LOG(1,PRINT_BLUE "pos_d:%f %f %f %f", aux_f[0],aux_f[1],aux_f[2],aux_f[3]);
+                    
                     printRec = false;
                 }
             }

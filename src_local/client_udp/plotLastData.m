@@ -1,5 +1,9 @@
 function plotLastData(Nfigure,fileName)
 
+    global UILast
+
+    
+
     f = fileName;    
     d = importdata(f,'\t');    
     idx = find(d.data(:,1)==0);
@@ -15,7 +19,9 @@ function plotLastData(Nfigure,fileName)
     t = data.time;
     tau_cal = (data.pos_in/150 - data.pos_out)*104;
     
-    figure(Nfigure), clf
+    fig = figure(Nfigure); clf;
+    UILast.fig = fig;
+    set(fig,'units','normalized','outerposition',[0 0 1 1])
     
     subplot(321)
     hold on
@@ -52,6 +58,8 @@ function plotLastData(Nfigure,fileName)
         xlim([t(1) t(end)])
         drawnow
     end
+
+    assignin("base","UILast",UILast);
 
 end
 

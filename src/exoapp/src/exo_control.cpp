@@ -242,7 +242,7 @@ void *_threadControl(void *arg)
             /******************************************/
             KR.Kv = VARS_EXO::UDP_IN->KV;
             KR.Bv = 0;
-            KR.theta_d = VARS_EXO::UDP_IN->pos_d;
+            KR.theta_d = VARS_EXO::UDP_IN->KR_pos_d;
             KR.omega_d = 0;
             KR.precalculate();
             omega = CTRL::PID(KR, 350, 35, 3);
@@ -260,11 +260,11 @@ void *_threadControl(void *arg)
             /******************************************/
             KL.Kv = VARS_EXO::UDP_IN->KV;
             KL.Bv = 0;
-            KL.theta_d = VARS_EXO::UDP_IN->pos_d;
+            KL.theta_d = VARS_EXO::UDP_IN->KL_pos_d;
             KL.omega_d = 0;
             KL.precalculate();
-            // omega = CTRL::PID(KL, 300, 10, 1);
-            omega = CTRL::PID(KL, 400, 40, 1);
+            omega = CTRL::PID(KL, 300, 10, 1);
+            // omega = CTRL::PID(KL, 400, 40, 1);
             if (omega >= MAX_VEL)
                 omega = MAX_VEL;
             else if (omega <= -MAX_VEL)
@@ -280,7 +280,7 @@ void *_threadControl(void *arg)
             /******************************************/
             HL.Kv = VARS_EXO::UDP_IN->KV;
             HL.Bv = 0.0;
-            HL.theta_d = VARS_EXO::UDP_IN->pos_d;
+            HL.theta_d = VARS_EXO::UDP_IN->HL_pos_d;
             HL.omega_d = 0;
             HL.precalculate();
             // omega = CTRL::PID(HL, 300, 10, 1);
@@ -300,11 +300,11 @@ void *_threadControl(void *arg)
             /******************************************/
             HR.Kv = VARS_EXO::UDP_IN->KV;
             HR.Bv = 0;
-            HR.theta_d = VARS_EXO::UDP_IN->pos_d;
+            HR.theta_d = VARS_EXO::UDP_IN->HR_pos_d;
             HR.omega_d = 0;
             HR.precalculate();
             // omega = CTRL::PID(HR, 300, 10, 1);
-            omega = CTRL::PID(HR, 120, 1, 0);
+            omega = CTRL::PID(HR, 110, 1, 0);
             if (omega >= MAX_VEL)
                 omega = MAX_VEL;
             else if (omega <= -MAX_VEL)
@@ -480,7 +480,7 @@ int main()
     EXO::R::Knee::Encoder.encoder_Q = -2000.0;
 
     EXO::L::Knee::Motor.encoder_Q = 4096.0;
-    EXO::L::Knee::Encoder.encoder_Q = -2048.0;
+    EXO::L::Knee::Encoder.encoder_Q = -2000.0;
 
     CONFIG::setDuration(60);
     CONFIG::setTimeSample_us(1000L);
