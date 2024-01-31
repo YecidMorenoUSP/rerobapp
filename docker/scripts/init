@@ -1,5 +1,11 @@
 #!/bin/bash
 
-DOCKER_FOLDER=dockerfiles
+if [ -f ~/.config/rerobapp/rerobapp.conf ]; then
+   source ~/.config/rerobapp/rerobapp.conf
+else
+   echo "Loading rerobapp.conf local"
+   source rerobapp.conf
+fi
 
-docker build -f $DOCKER_FOLDER/beaglebone_debian_11_7.dockerfile -t beaglebone2023:lasted .
+docker build -f $DOCKER_PATH/dockerfiles/beaglebone_debian_11_7.dockerfile \
+             -t beaglebone2023:lasted .
