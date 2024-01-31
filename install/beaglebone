@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -f ~/.config/rerobapp/rerobapp.conf ]; then
+   source ~/.config/rerobapp/rerobapp.conf
+else
+   echo "Loading rerobapp.conf local"
+   source rerobapp.conf
+fi
+
+mkdir $DOCKER_PATH/img
+
+wget https://files.beagle.cc/file/beagleboard-public-2021/images/am335x-eMMC-flasher-debian-11.7-iot-armhf-2023-08-05-4gb.img.xz \
+-P $DOCKER_PATH/img

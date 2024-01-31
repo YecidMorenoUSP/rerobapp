@@ -1,0 +1,15 @@
+#!/bin/bash
+
+no_touch_here/start.conf > rerobapp.conf
+chmod +x rerobapp.conf
+
+cp rerobapp.conf ~/.config/rerobapp/rerobapp.conf
+
+cat rerobapp.conf
+
+if [ -f ~/.config/rerobapp/rerobapp.conf ]; then
+   source ~/.config/rerobapp/rerobapp.conf
+else
+   echo "Loading rerobapp.conf local"
+   source rerobapp.conf
+fi

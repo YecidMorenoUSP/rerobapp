@@ -65,6 +65,8 @@ The choice of BeagleBone as our development platform is driven by its versatile 
 
 Flashing the eMMC with an official image from [Beaglebone.org](https://www.beagleboard.org/distros), in this case the image [AM335x Debian 11.7 2023-08-05 4GB eMMC IoT Flasher](https://www.beagleboard.org/distros/am335x-debian-11-7-2023-08-05-4gb-emmc-iot-flasher) was used for the Beaglebone Green. 
 
+Download the img using: `./install/beaglebone` in your shell
+
 If you want root access, please remember that Beaglebone images have the default *[username:password]* is `debian:temppwd`.
 
 
@@ -130,8 +132,7 @@ In this framework, we leverage Docker as a fundamental tool to speed up the comp
 This command build a Docker image `beaglebone2023:lasted`, that includes all the necessary libraries and packages for your project. 
 
 ```bash
-cd docker
-source ./scripts/init
+source ./docker/scripts/init
 ```
 
 
