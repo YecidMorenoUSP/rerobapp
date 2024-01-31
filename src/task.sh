@@ -17,9 +17,9 @@ make
 # cd src/test_sync/ 
 # make
 
-cd ~
-cd src/server_udp/
-make
+# cd ~
+# cd src/server_udp/
+# make
 
 # cd ~
 # cd src/server_shm/

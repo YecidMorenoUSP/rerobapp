@@ -1,6 +1,11 @@
 #!/bin/bash
 
-source "$HOME/.config/rerobapp/start.conf"
+if [ -f ~/.config/rerobapp/rerobapp.conf ]; then
+   source ~/.config/rerobapp/rerobapp.conf
+else
+   echo "Loading rerobapp.conf local"
+   source ../rerobapp.conf
+fi
 
 SRC_PATH="."
 
