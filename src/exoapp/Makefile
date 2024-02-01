@@ -1,15 +1,22 @@
-# tool macros
-CXX := arm-linux-gnueabihf-g++
-CXXFLAGS :=   -O3  -lpthread -lrt
-DBGFLAGS := -g 
-CCOBJFLAGS := $(CXXFLAGS) -I../libs_rerob -I../libs_rerob/canlib  -I../libs_rerob/utilslib -I../../libs/ -I/usr/include/eigen3/ -c  -lrt  
 
 # path macros
 BIN_PATH := ~/build
+ALL_SRC_PATH := ${HOME}/src
 OBJ_PATH := obj
 SRC_PATH := src
 DBG_PATH := debug
 RES_PATH := res
+
+# tool macros
+CXX := arm-linux-gnueabihf-g++
+CXXFLAGS :=   -O3  -lpthread -lrt
+DBGFLAGS := -g 
+CCOBJFLAGS := $(CXXFLAGS) \
+			 -I${ALL_SRC_PATH}/libs_rerob \
+			 -I${ALL_SRC_PATH}/libs_rerob/canlib  \
+			 -I${ALL_SRC_PATH}/libs_rerob/utilslib \
+			 -I${HOME}/libs/ -I/usr/include/eigen3/ \
+			 -c  -lrt  
 
 # compile macros
 TARGET_NAME := $(shell basename $(CURDIR))
@@ -44,7 +51,7 @@ send-beaglebone :
 
 # non-phony targets
 $(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(CXXFLAGS) libs/canlib.so
+	$(CXX) $(OBJ) -o $@ $(CXXFLAGS) $(BIN_PATH)/libs/canlib.so
 	$(CXX) -o $@.static $(OBJ) $(BIN_PATH)/libs/canlib.a $(CXXFLAGS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*

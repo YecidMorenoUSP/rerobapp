@@ -1,9 +1,23 @@
 #!/bin/bash
 
-no_touch_here/start.conf > rerobapp.conf
-chmod +x rerobapp.conf
+if ! [ -d ~/.config ]; then
+   echo "creating .config folder"
+   mkdir ~/.config
+fi
 
-cp rerobapp.conf ~/.config/rerobapp/rerobapp.conf
+if ! [ -d ~/.config/rerobapp ]; then
+   echo "creating .config/rerobapp folder"
+   mkdir ~/.config/rerobapp
+fi
+
+if [ -f rerobapp.conf ]; then
+   rm rerobapp.conf
+fi
+
+no_touch_here/start.conf > ~/.config/rerobapp/rerobapp.conf
+chmod +x ~/.config/rerobapp/rerobapp.conf
+
+ln -s ~/.config/rerobapp/rerobapp.conf . 
 
 cat rerobapp.conf
 

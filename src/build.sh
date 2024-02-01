@@ -7,7 +7,10 @@ else
    source ../rerobapp.conf
 fi
 
-SRC_PATH="."
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+SRC_PATH="$SCRIPTPATH"
 
 SSH_USER="$EXOTAO_USER_SSH"
 
@@ -18,6 +21,7 @@ mkdir -p "$BUILD_DOCKER_PATH"
 mkdir -p "$SRC_DOCKER_PATH"
 
 rsync -aruh "$SRC_PATH/" "$SRC_DOCKER_PATH"
+rsync -aruh "$SRC_PATH/res" "$SRC_DOCKER_PATH/../res"
 
 docker run -it --rm --user $(id -u):$(id -g) \
     --env="DISPLAY" \
@@ -37,8 +41,8 @@ docker run -it --rm --user $(id -u):$(id -g) \
     --name beaglebone_c --workdir="/home/$USER" \
     beaglebone2023:lasted "./src/task.sh"
 
-rsync -aruvh  "$BUILD_DOCKER_PATH" "$SSH_USER:/home/debian/"
-rsync -aruvh  exoapp/res/ "$SSH_USER:/home/debian/res"
+# rsync -aruvh  "$BUILD_DOCKER_PATH" "$SSH_USER:/home/debian/"
+# rsync -aruvh  exoapp/res/ "$SSH_USER:/home/debian/res"
 
 # read -p "Press enter to continue . . ."
 

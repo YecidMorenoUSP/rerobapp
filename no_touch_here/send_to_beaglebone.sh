@@ -1,11 +1,11 @@
 #!/bin/bash
-ls
-scp -r $BUILD_DOCKER_PATH debian@192.168.7.2:/home/debian/
 
-# ssh debian@192.168.7.2 mkdir /home/debian/rerobapp
-# scp -r src res Makefile debian@192.168.7.2:/home/debian/rerobapp
+if [ -f ~/.config/rerobapp/rerobapp.conf ]; then
+   source ~/.config/rerobapp/rerobapp.conf
+else
+   echo "Loading rerobapp.conf local"
+   source ../rerobapp.conf
+fi
 
-# rsync -aruvh  src res Makefile debian@192.168.7.2:/home/debian/rerobapp
-
-# ssh debian@192.168.7.2 "cd /home/debian/rerobapp  ; make"
-# ssh debian@192.168.7.2 "cd /home/debian/rerobapp ; make clean ; make"
+rsync -aruvh  "$BUILD_DOCKER_PATH" "$EXOTAO_USER_SSH:/home/debian/"
+rsync -aruvh  "$REROBAPP_PATH/src/res/" "$EXOTAO_USER_SSH:/home/debian/res"
