@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "REROBAPP"
+		}
+	],
+	"settings": {
+		"actionButtons": {
+			"commands": [
+				{
+					"name": "Build SRC",
+					"command": "./src/build.sh"
+				},
+				{
+					"name": "Upload",
+					"command": "$REROBAPP_PATH/no_touch_here/send_to_beaglebone.sh"
+				},
+				{
+					"name": "ExoAPP",
+					"command": "ssh -t $EXOTAO_USER_SSH ./build/exoapp.static"
+				}
+			]
+		}
+	},"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"seunlanlege.action-buttons"
+		]
+	}
+}
