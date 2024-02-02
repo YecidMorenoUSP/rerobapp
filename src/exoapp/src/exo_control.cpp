@@ -11,7 +11,7 @@
 using namespace std;
 using namespace std::chrono;
 
-CanNetwork can((char *)"can1");
+CanNetwork can((char *)"can0");
 
 File_threadControl file_Knee_R;
 
@@ -36,7 +36,7 @@ void *_threadSync(void *arg)
 
     void *shm_ptr_2 = shm_create(SHM_VARS_IN_KEY, SHM_VARS_IN_SIZE);
     VARS_EXO::UDP_IN = (shm_struct_vars_in *)shm_ptr_2;
-    memset(VARS_EXO::UDP_IN,0,sizeof(shm_struct_vars_in));
+    memset(VARS_EXO::UDP_IN, 0, sizeof(shm_struct_vars_in));
     shm_struct_vars_in *var_in = (shm_struct_vars_in *)shm_ptr_2;
     var_in->key = SHM_VARS_IN_KEY;
 
@@ -57,7 +57,7 @@ void *_threadSync(void *arg)
         k = STATUS::TIME::control;
         can_sz = can._queued_frames.size();
 
-        if (k % 100 == 0)
+        if (k % 1000 == 0)
         {
 
             PRINT_LOG(2, "*[%3.4f][_threadSync] SZ_CAN: %2ld  Kv:%.4f pos_d:%.4f",
@@ -67,7 +67,7 @@ void *_threadSync(void *arg)
                       VARS_EXO::UDP_IN->pos_d);
         }
 
-        if (k % 10 == 0)
+        if (k % 50 == 0)
         {
             // VARS_EXO::Kv = var_in->KV;
 
@@ -171,7 +171,8 @@ void *_threadControl(void *arg)
     {
 
         // PRINT_LOG(4,PRINT_BLUE "_threadControl: Alive" PRINT_RESET);
-
+        can.fillDic();
+        
         spinlock_Control.Lock();
 
         static double dtK;
@@ -183,7 +184,7 @@ void *_threadControl(void *arg)
         if (STATUS::RUNNING)
             break;
 
-        EXO::net.sync(true);
+        EXO::net.sync(false);
         EXO::net.readPDO_TX_all();
 
         k = TIME::control;
@@ -203,6 +204,7 @@ void *_threadControl(void *arg)
         HR.setTheta_m(EXO::R::Hip::Motor.getPosition());
         HL.setTheta_m(EXO::L::Hip::Motor.getPosition());
 
+                
         if (TIME::seconds < 1.0)
         {
 
@@ -274,7 +276,6 @@ void *_threadControl(void *arg)
             lpf_w_kl.update(omega);
             KL.setOmega_m(lpf_w_kl.getOutput());
 
-            
             /******************************************/
             /**************      HL      **************/
             /******************************************/
@@ -293,7 +294,6 @@ void *_threadControl(void *arg)
             static LowPassFilter lpf_w_hl(1000, CONFIG::ts_s);
             lpf_w_hl.update(omega);
             HL.setOmega_m(lpf_w_hl.getOutput());
-
 
             /******************************************/
             /**************      HR      **************/
@@ -314,17 +314,15 @@ void *_threadControl(void *arg)
             lpf_w_hr.update(omega);
             HR.setOmega_m(lpf_w_hr.getOutput());
 
-
             EXO::R::Knee::Motor.setVelocity(KR.getOmega_m(0));
             EXO::L::Knee::Motor.setVelocity(KL.getOmega_m(0));
-            
+
             EXO::R::Hip::Motor.setVelocity(0);
             EXO::L::Hip::Motor.setVelocity(0);
-            EXO::R::Hip::Motor.setVelocity(HR.getOmega_m(0));
-            EXO::L::Hip::Motor.setVelocity(HL.getOmega_m(0)); 
-
-             
+            // EXO::R::Hip::Motor.setVelocity(HR.getOmega_m(0));
+            // EXO::L::Hip::Motor.setVelocity(HL.getOmega_m(0));
         }
+
 
         us1 = high_resolution_clock::now();
         file_Knee_R.time[k] = duration_cast<microseconds>(us1 - usinit).count() / 1000000.0;
@@ -336,14 +334,14 @@ void *_threadControl(void *arg)
         file_Knee_R.tau_d[k] = KR.getTau_d(0);
         file_Knee_R.tau_l[k] = KR.getTau_l(0);
 
-        file_Knee_L.time[k]   =  TIME::seconds;
-        file_Knee_L.pos_in[k] =  KL.getTheta_m();
-        file_Knee_L.pos_out[k]=  KL.getTheta_l();
-        file_Knee_L.vel_in[k] =  EXO::L::Knee::Motor.getVelocity();
-        file_Knee_L.vel_out[k]=  EXO::L::Knee::Encoder.getVelocity();
-        file_Knee_L.vel_d[k] =   KL.getOmega_m(0);
-        file_Knee_L.tau_d[k] =   KL.getTau_d(0);
-        file_Knee_L.tau_l[k] =   KL.getTau_l(0);
+        file_Knee_L.time[k] = TIME::seconds;
+        file_Knee_L.pos_in[k] = KL.getTheta_m();
+        file_Knee_L.pos_out[k] = KL.getTheta_l();
+        file_Knee_L.vel_in[k] = EXO::L::Knee::Motor.getVelocity();
+        file_Knee_L.vel_out[k] = EXO::L::Knee::Encoder.getVelocity();
+        file_Knee_L.vel_d[k] = KL.getOmega_m(0);
+        file_Knee_L.tau_d[k] = KL.getTau_d(0);
+        file_Knee_L.tau_l[k] = KL.getTau_l(0);
 
         file_Hip_R.time[k] = TIME::seconds;
         file_Hip_R.pos_in[k] = HR.getTheta_m();
@@ -369,10 +367,10 @@ void *_threadControl(void *arg)
         KL.shift();
 
         us1 = high_resolution_clock::now();
-        dt_ms = duration_cast<milliseconds>(us1 - us0).count();
-        if (dt_ms >= 1000)
+        dt_ms = duration_cast<microseconds>(us1 - us0).count();
+        if (dt_ms >= CONFIG::ts_us)
         {
-            PRINT_LOG(5, PRINT_RED "[TimeOut] _threadControl %ldms\n", dt_ms);
+            // PRINT_LOG(5, PRINT_RED "[TimeOut] _threadControl %ldms\n", dt_ms);
         }
     }
 
@@ -434,34 +432,35 @@ void *_threadSerial(void *arg)
     while (STATUS::RUNNING == false)
     {
         spinlock_Sync.Lock();
+        std::this_thread::sleep_for(microseconds(100));
         if (STATUS::RUNNING)
             break;
-        
+
         char response[1024];
         S.writePort((char *)"p", 1);
-        memset(response,'\0',1024);
+        memset(response, '\0', 1024);
         spot = S.readPort(response, 10);
-        
-        
 
-        if ( response[0] == '@' && response[9] == '\n' )
+        if (response[0] == '@' && response[9] == '\n')
         {
-            t0.timeAt();    
-            static float TimeRead = 0;   
-            TimeRead = (float)(t0.get<milliseconds>()/1000.0f);
+            t0.timeAt();
+            static float TimeRead = 0;
+            TimeRead = (float)(t0.get<microseconds>() / 1000000.0f);
             t0.init();
 
             float *V = (float *)&(response[1]);
             static LowPassFilter V0(1000, CONFIG::ts_s);
             static LowPassFilter V1(1000, CONFIG::ts_s);
-            
+
             V0.update(V[0],TimeRead,500);
             V1.update(V[1],TimeRead,500);
 
             HR.setTheta_l(-V0.getOutput());
             HL.setTheta_l(-V1.getOutput());
-        }else{
-            PRINT_LOG(5, PRINT_RED " [%3.4f] [spot %d] /dev/ttyUSB0: Read Failure" PRINT_RESET,TIME::seconds,spot);
+        }
+        else
+        {
+            PRINT_LOG(5, PRINT_RED " [%3.4f] [spot %d] /dev/ttyUSB0: Read Failure" PRINT_RESET, TIME::seconds, spot);
         }
     }
 
@@ -483,8 +482,13 @@ int main()
     EXO::L::Knee::Encoder.encoder_Q = -2000.0;
 
     CONFIG::setDuration(60);
-    CONFIG::setTimeSample_us(1000L);
-    CONFIG::setTimeSample_us(5000L);
+    CONFIG::setTimeSample_us(2000L);
+    // CONFIG::setTimeSample_us(5000L);
+
+    PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_us -> %ld" PRINT_RESET, CONFIG::ts_us);
+    PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_ns -> %ld" PRINT_RESET, CONFIG::ts_ns);
+    PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_ms -> %ld" PRINT_RESET, CONFIG::ts_ms);
+    PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_s -> %f" PRINT_RESET, CONFIG::ts_s);
 
     file_Hip_L.setSize((long)(CONFIG::durationTest * (1.0 / CONFIG::ts_s)));
     file_Hip_R.setSize((long)(CONFIG::durationTest * (1.0 / CONFIG::ts_s)));
@@ -511,6 +515,13 @@ int main()
     EXO::net.init();
     EXO::net.sync(false);
 
+    EXO::R::Hip::Motor.asyncCan = false;
+    EXO::L::Hip::Motor.asyncCan = false;
+    EXO::R::Knee::Encoder.asyncCan = false;
+    EXO::R::Knee::Motor.asyncCan = false;
+    EXO::L::Knee::Encoder.asyncCan = false;
+    EXO::L::Knee::Motor.asyncCan = false;
+
     EXO::R::Hip::Motor.stopMotors();
     EXO::R::Hip::Motor.startMotors();
 
@@ -528,6 +539,14 @@ int main()
 
     EXO::L::Knee::Motor.startMotors();
     EXO::L::Knee::Encoder.startMotors();
+
+    // auto us0 = high_resolution_clock::now();
+    // EXO::net.sync(false);
+    // auto us1 = high_resolution_clock::now();
+    // auto dt_us = duration_cast<microseconds>(us1 - us0).count();
+    
+    // PRINT_LOG(5, PRINT_GREEN "EXO::net.sync(false); [ %ldus]", dt_us);
+    
 
     EXO::net.sync(false);
 
@@ -553,7 +572,9 @@ int main()
     pthread_attr_setschedparam(&attr3, &params3);
 
     can.setPeriod(CONFIG::ts_us);
-    can.startThread();
+    // can.startThread();
+
+    STATUS::RUNNING = false;
 
     if (pthread_create(&threadControl, &attr2, _threadControl, nullptr) != 0)
     {
@@ -575,6 +596,8 @@ int main()
 
         return 1;
     }
+
+    // std::this_thread::sleep_for(std::chrono::seconds(5));
 
     pthread_attr_destroy(&attr1);
     pthread_attr_destroy(&attr2);

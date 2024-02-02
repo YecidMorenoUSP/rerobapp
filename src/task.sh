@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# cd ~
-# cd src/libs_rerob/canlib/
-# make clean
-# make
+cd ~
+cd src/libs_rerob/canlib/
+make clean
+make
 
 # cd ~
 # cd src/serial_read/

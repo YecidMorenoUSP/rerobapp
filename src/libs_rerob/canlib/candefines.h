@@ -11,7 +11,8 @@
 typedef struct can_frame can_frame_s;
 
 // #define can_tic_toc usleep(400);
-#define can_tic_toc std::this_thread::sleep_for(std::chrono::microseconds(10));
+#define can_tic_toc (void)0;
+// #define can_tic_toc std::this_thread::sleep_for(std::chrono::microseconds(1));
 #define can_tic_toc_l std::this_thread::sleep_for(std::chrono::milliseconds(5));
 
 const can_frame_s FRAME_NMT_PREOPERATIONAL = {0x00, 0x02, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00};

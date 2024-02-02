@@ -21,7 +21,7 @@ private:
 
     int32_t _controlWord;
 
-    bool asyncCan = true;
+    
 
     CanNetwork *_can;
 
@@ -60,6 +60,8 @@ private:
 
 public:
     
+    bool asyncCan = false;
+
     double encoder_Q = 1020.0;
     int32_t position;
     int16_t A1,A2;
