@@ -9,5 +9,13 @@ fi
 
 mkdir $DOCKER_PATH/img
 
-wget https://files.beagle.cc/file/beagleboard-public-2021/images/am335x-eMMC-flasher-debian-11.7-iot-armhf-2023-08-05-4gb.img.xz \
+DISTRO_NAME=am335x-eMMC-flasher-debian-11.7-iot-armhf-2023-08-05-4gb
+
+wget https://files.beagle.cc/file/beagleboard-public-2021/images/$DISTRO_NAME.img.xz \
 -P $DOCKER_PATH/img
+
+unxz $DOCKER_PATH/img/*.xz
+
+#sudo dd if=/home/yecid/git/rerobapp/docker/img/$DISTRO_NAME.img of=/dev/sdc1 status=progress
+
+#wget "https://openbeagle.org/beagleboard/linux/-/jobs/20441/artifacts/download?file_type=archive"
