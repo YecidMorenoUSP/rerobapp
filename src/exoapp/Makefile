@@ -9,7 +9,7 @@ RES_PATH := res
 
 # tool macros
 CXX := arm-linux-gnueabihf-g++
-CXXFLAGS :=   -O3  -lpthread -lrt
+CXXFLAGS :=   -O3  -lpthread -lrt 
 DBGFLAGS := -g 
 CCOBJFLAGS := $(CXXFLAGS) \
 			 -I${ALL_SRC_PATH}/libs_rerob \
@@ -30,6 +30,14 @@ TARGET_DEBUG := $(DBG_PATH)/$(TARGET_NAME)
 SRC := $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/*,.c*)))
 OBJ := $(addprefix $(OBJ_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 OBJ_DEBUG := $(addprefix $(DBG_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
+
+SRC2 := $(foreach x, ${ALL_SRC_PATH}/libs_rerob/utilslib, $(wildcard $(addprefix $(x)/*,.c*))) 
+OBJ +=  $(addsuffix .o, $(basename $(SRC2)) )
+
+SRC2 := $(foreach x, ${HOME}/libs/LowPassFilter, $(wildcard $(addprefix $(x)/*,.c*))) 
+OBJ +=  $(addsuffix .o, $(basename $(SRC2)) )
+
+SRC += $(SRC2)
 
 # clean files list
 DISTCLEAN_LIST := $(OBJ) \
@@ -76,6 +84,9 @@ debug: $(TARGET_DEBUG)
 
 .PHONY: clean
 clean:
+	@echo "SRC"
+	@echo $(SRC)
+	@echo $(OBJ)
 	@echo CLEAN $(CLEAN_LIST)
 	@rm -f $(CLEAN_LIST)
 

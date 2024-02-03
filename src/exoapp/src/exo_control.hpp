@@ -14,26 +14,22 @@
 using namespace std;
 using namespace std::chrono;
 
-// void saveFile();
 
 void timer_isr(int sig, siginfo_t *p, void *p2)
 {
-    using namespace STATUS;
-    TIME::total++;
-    TIME::seconds = TIME::total * CONFIG::ts_s;
+    _TIME_STATUS.total++;
+    _TIME_STATUS.seconds = _TIME_STATUS.total * CONFIG::ts_s;
 
-    if (TIME::seconds >= CONFIG::durationTest)
+    if (_TIME_STATUS.seconds >= CONFIG::durationTest)
     {
-        RUNNING = true;
+        _TIME_STATUS.RUNNING = false;
         spinlock_Control.Unlock();
         spinlock_Sync.Unlock();
     }
 
-    TIME::control++;
+    _TIME_STATUS.control++;
     spinlock_Control.Unlock();
     spinlock_Sync.Unlock();
-    
-    // PRINT_LOG(2, PRINT_MAGENTA "Timer" PRINT_RESET);
 }
 
 int createTimer(long tv_nsec)
@@ -80,7 +76,7 @@ int createTimer(long tv_nsec)
 
 void closeCallBack()
 {
-    STATUS::RUNNING = true;
+    _TIME_STATUS.RUNNING = false;
     can.stopThread();
 
     for (int i = 0; i < 2; i++)
@@ -96,13 +92,7 @@ void closeCallBack()
     timer_delete(timerId);
 
     int res;
-    if (res = pthread_join(threadSync, nullptr) != 0)
-    {
-        if (!(res == EPERM || res == 0))
-        {
-            PRINT_LOG(5, PRINT_RED "[FAIL]" PRINT_RESET "Wait for: void *threadSync %d", res);
-        }
-    }
+
     if (res = pthread_join(threadControl, nullptr) != 0)
     {
         if (!(res == EPERM || res == 0))
@@ -110,13 +100,7 @@ void closeCallBack()
             PRINT_LOG(5, PRINT_RED "[FAIL]" PRINT_RESET "Wait for: void *threadControl %d", res);
         }
     }
-    if (res = pthread_join(threadSerial, nullptr) != 0)
-    {
-        if (!(res == EPERM || res == 0))
-        {
-            PRINT_LOG(5, PRINT_RED "[FAIL]" PRINT_RESET "Wait for: void *threadSerial %d", res);
-        }
-    }
+    EXOTAO_STOP_THREADS();
 }
 
 void my_handler(int s)
@@ -125,7 +109,7 @@ void my_handler(int s)
 
     can.printDic();
 
-    PRINT_LOG(1, PRINT_GREEN "Ctrl+C Captured" PRINT_RESET "  %.4fseconds", STATUS::TIME::seconds);
+    PRINT_LOG(1, PRINT_GREEN "Ctrl+C Captured" PRINT_RESET "  %.4fseconds", _TIME_STATUS.seconds);
     exit(1);
 }
 
@@ -139,44 +123,3 @@ void createSystemInterrupt()
 
     sigaction(SIGINT, &sigIntHandler, NULL);
 }
-
-class File_threadControl : public RerobAppDataLog
-{
-
-public:
-    vector<float> time;
-    vector<float> pos_in;
-    vector<float> pos_out;
-    vector<float> vel_in;
-    vector<float> vel_out;
-    vector<float> tau_d;
-    vector<float> tau_l;
-    vector<float> vel_d;
-
-    File_threadControl()
-    {
-    }
-
-    void setSize(long size)
-    {
-        _size = size + 100;
-        time.reserve(_size);
-        pos_in.reserve(_size);
-        pos_out.reserve(_size);
-        vel_in.reserve(_size);
-        vel_out.reserve(_size);
-        vel_d.reserve(_size);
-        tau_d.reserve(_size);
-        tau_l.reserve(_size);
-    }
-
-    void saveHeader(FILE *file)
-    {
-        fprintf(file, "time\tpos_in\tpos_out\tvel_in\tvel_out\tvel_d\ttau_d\ttau_l\n");
-    }
-
-    void saveLine(FILE *file, long idx)
-    {
-        fprintf(file, "%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", time[idx], pos_in[idx], pos_out[idx], vel_in[idx], vel_out[idx], vel_d[idx],tau_d[idx],tau_l[idx]);
-    }
-};

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTILS_SHM_H
+#define UTILS_SHM_H
 
 #include <cstdint>
 
@@ -81,7 +82,6 @@ typedef struct
 
 }shm_struct_vars_in;
 
-void* shm_create(key_t key, size_t size){
-    int shmid = shmget(key, size, 0666 | IPC_CREAT);
-    return shmat(shmid, (void *)0, 0);
-}
+void* shm_create(key_t key, size_t size);
+
+#endif

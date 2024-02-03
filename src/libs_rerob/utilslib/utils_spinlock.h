@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTILS_SPINLOCK_H
+#define UTILS_SPINLOCK_H
 
 #include <thread>
 #include <chrono>
@@ -8,19 +9,12 @@
 class SpinLock
 {
 public:
-    void Lock()
-    {
-        while (flag.test_and_set(std::memory_order_acquire))
-        {
-            std::this_thread::sleep_for(std::chrono::microseconds(100));
-        }
-    }
+    void Lock();
 
-    void Unlock()
-    {
-        flag.clear(std::memory_order_release);
-    }
+    void Unlock();
 
 private:
     std::atomic_flag flag = ATOMIC_FLAG_INIT;
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DEFINES_EXO_CONTROL
+#define DEFINES_EXO_CONTROL
 
 // // #define _count_k 1
 // // #define _ts_s 0.001
@@ -47,3 +48,9 @@
 #include <seriallib/seriallib.h>
 #include <utils_time.h>
 #include <utils_exo.h>
+
+#include <LowPassFilter/LowPassFilter.hpp>
+
+#include "ExoTAO.hpp"
+
+#endif

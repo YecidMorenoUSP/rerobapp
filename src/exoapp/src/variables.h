@@ -2,47 +2,6 @@
 
 #include "defines.h"
 
-extern CanNetwork can;
-
-namespace EXO
-{
-    EposNetwork net(can);
-
-    namespace R
-    {
-        namespace Knee
-        {
-            EposNode Motor(1, can);
-            EposNode Encoder(2, can);
-        };
-        namespace Hip
-        {
-            EposNode Motor(5, can);
-        };
-    };
-
-    namespace L
-    {
-        namespace Knee
-        {
-            EposNode Motor(3, can);
-            EposNode Encoder(4, can);
-        };
-        namespace Hip
-        {
-            EposNode Motor(6, can);
-        };
-    };
-}
-
-namespace VARS_EXO{
-    ActuatorVARS KR;
-    ActuatorVARS KL;
-    ActuatorVARS HL;
-    ActuatorVARS HR;
-    shm_struct_vars_in * UDP_IN;
-};
-
 // #define _count_k 1
 // #define _ts_s 0.001
 // #define _ts_m ((long)(_ts_s * 1000L))
@@ -72,29 +31,27 @@ namespace CONFIG
         ts_ms = (long)(ts_us / 1000L);
         ts_s = (float)(ts_ms / 1000.0);
 
-        // printf("ts_us : %ld \n "
-        //        "ts_ns : %ld \n "
-        //        "ts_ms : %ld \n "
-        //        "ts_s : %f \n ",
-        //        ts_us, ts_ns, ts_ms, ts_s);
+        PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_us -> %ld" PRINT_RESET, CONFIG::ts_us);
+        PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_ns -> %ld" PRINT_RESET, CONFIG::ts_ns);
+        PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_ms -> %ld" PRINT_RESET, CONFIG::ts_ms);
+        PRINT_LOG(1, PRINT_GREEN "CONFIG::ts_s -> %f" PRINT_RESET, CONFIG::ts_s);
     }
-
+    
 };
 
-namespace STATUS
-{
-    atomic<bool> RUNNING(false);
-    namespace TIME
-    {
-        long control = 0;
-        long total = 0;
-        volatile float seconds;
-    };
-};
+// namespace STATUS
+// {
+//     atomic<bool> RUNNING(false);
+//     namespace TIME
+//     {
+//         long control = 0;
+//         long total = 0;
+//         volatile float seconds;
+//     };
+// };
 
 timer_t timerId;
 
 SpinLock spinlock_Control;
-SpinLock spinlock_Sync;
 
-pthread_t threadSync, threadControl, threadSerial;
+pthread_t threadControl;
