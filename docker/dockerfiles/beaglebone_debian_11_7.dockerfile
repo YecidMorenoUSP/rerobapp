@@ -17,6 +17,12 @@ RUN apt-get install -y \
 	g++-arm-linux-gnueabihf
 
 RUN apt-get install -y \
+	gcc make \
+	gcc-aarch64-linux-gnu \
+	binutils-aarch64-linux-gnu \
+	g++-aarch64-linux-gnu
+
+RUN apt-get install -y \
 	linux-image-5.10.0-25-rt-amd64
 
 RUN apt-get install -y \
