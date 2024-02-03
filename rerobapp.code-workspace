@@ -17,15 +17,47 @@
 					"command": "$REROBAPP_PATH/no_touch_here/send_to_beaglebone.sh"
 				},
 				{
+					"name": "CAN5kbs",
+					"command": "ssh -t $EXOTAO_USER_SSH ./res/configure5000.sh"
+				},
+				{
+					"name": "CAN1Mbs",
+					"command": "ssh -t $EXOTAO_USER_SSH ./res/configure10000.sh"
+				},
+				{
 					"name": "ExoAPP",
 					"command": "ssh -t $EXOTAO_USER_SSH ./build/exoapp.static"
+				},
+				{
+					"name": "EposTest",
+					"command": "ssh -t $EXOTAO_USER_SSH ./res/epostestcan0.sh"
 				}
 			]
-		}
+		},
+		"files.associations": {
+			"chrono": "cpp",
+			"bitset": "cpp",
+			"algorithm": "cpp",
+			"*.tcc": "cpp",
+			"unordered_map": "cpp",
+			"fstream": "cpp",
+			"istream": "cpp",
+			"numeric": "cpp",
+			"ostream": "cpp",
+			"sstream": "cpp",
+			"syncstream": "cpp",
+			"cmath": "cpp",
+			"complex": "cpp",
+			"atomic": "cpp",
+			"iostream": "cpp",
+			"smpt_ll_client.h": "c",
+			"rehamovelib.c": "cpp"
+		},
 	},"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
-			"seunlanlege.action-buttons"
+			"seunlanlege.action-buttons",
+			"ms-vscode.cpptools-extension-pack"
 		]
-	}
+	},
 }
